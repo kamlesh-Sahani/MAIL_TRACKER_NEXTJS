@@ -9,18 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
+    "@google/generative-ai": "^0.17.1",
+    "axios": "^1.7.5",
+    "bcryptjs": "^2.4.3",
+    "marked": "^14.1.0",
+    "mongoose": "^8.5.4",
+    "next": "14.2.6",
+    "next-auth": "^5.0.0-beta.20",
+    "nodemailer": "^6.9.14",
     "react-dom": "^18",
-    "next": "14.2.6"
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.3.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/nodemailer": "^6.4.15",
+    "@types/react": "^18.3.4",
     "@types/react-dom": "^18",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.6",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.6"
+    "typescript": "^5"
   }
 }
