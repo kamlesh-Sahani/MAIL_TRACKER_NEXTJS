@@ -31,6 +31,7 @@ const Profile = async () => {
           <form action={async () => {
             "use server";
             await signOut();
+            redirect('/login')
           }}>
             <button type="submit" className="w-[130px] h-[40px] bg-blue-700 text-black rounded font-semibold cursor-pointer  ">Sign out</button>
           </form>
