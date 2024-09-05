@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import UserModel from '@/models/user.model';
 dbConnect();
 import { marked } from 'marked';
-
 export async function POST(req:NextRequest){
     try {
         const reqBody = await req.json();

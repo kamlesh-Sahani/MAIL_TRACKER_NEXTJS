@@ -7,7 +7,6 @@ const  {auth} =  NextAuth(authConfig);
     const session:any  = await auth();
     
     const isLogin = !!session || !!session?.user || !!session?.user.email;
-    console.log(isLogin,"login")
     const protectedRoute = req.nextUrl.pathname==="/campaign" || req.nextUrl.pathname==="/profile";
     const withoutLoginRoute = req.nextUrl.pathname === "/login" || req.nextUrl.pathname==="/register"
     if(isLogin && withoutLoginRoute){

@@ -13,7 +13,7 @@ interface UserSchemaType{
         campaignName:string;
         createdAt:Date;
         recipients:Array<string>;
-        opend:Array<string>;
+        opend?:Array<string>;
     }[]
 }
 const userSchema = new mongoose.Schema<UserSchemaType>({
