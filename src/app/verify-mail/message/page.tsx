@@ -1,6 +1,6 @@
 "use client";
 import {useSearchParams,useRouter} from 'next/navigation'
-const page = () => {
+const VerifyMailMessage = () => {
     const searchParams = useSearchParams();
     const id = searchParams.get("id");
     const router = useRouter();
@@ -35,4 +35,4 @@ const page = () => {
     )
 }
 
-export default page
+export default VerifyMailMessage
