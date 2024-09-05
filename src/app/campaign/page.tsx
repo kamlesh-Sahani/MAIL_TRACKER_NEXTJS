@@ -15,7 +15,14 @@ I wanted to take a moment to express how much I’ve enjoyed working at [Company
 const [mailData,setMailData]= useState<{subject:string,emails:string,message:any,userEmail:string}>({subject:"",emails:"",message:"",userEmail:""});
 const[isLoading,setIsLoading]= useState<boolean>(false);
 const [prompt,setPrompt] = useState<string>();
-const [aiPrompt]=useState(`Generate a complete, well-formatted, and professional email based on the topic: {topic}. The email should include an appropriate greeting, a structured body with a logical flow, and a polite closing with a professional sign-off. Ensure proper spacing, formatting, and a respectful tone throughout. Do not include a subject line.
+const [aiPrompt]=useState(`Generate a professional, personalized email based on the topic: {topic}. Ensure the email does **not** include a subject line. The email should include:
+- An appropriate greeting using the recipient's name (if available).
+- A polite, respectful tone with no exaggerated language, salesy words, or phrases that could be flagged as spam (e.g., "guaranteed," "free," "urgent").
+- Clear and concise language with proper grammar and sentence structure.
+- Avoid all-caps, excessive punctuation, or formatting that could trigger spam filters.
+- The body should be logically structured with a clear message, free from overly promotional or misleading content.
+- End with a polite closing, a professional sign-off, and your contact information. Ensure proper spacing and formatting throughout.
+- Make sure that the content looks authentic and personalized, reflecting genuine communication.
 `);
 
 const[aiLoading,setAiLoading] = useState<boolean>(false);
