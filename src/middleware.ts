@@ -1,12 +1,15 @@
 import {NextRequest, NextResponse} from "next/server"
 import { authConfig } from "./auth.config";
 import NextAuth from "next-auth";
-
 const  {auth} =  NextAuth(authConfig);
-  export const middleware = async (req:NextRequest)=>{
+export const middleware = async (req:NextRequest)=>{
     const session:any  = await auth();
-    const isLogin = !!session || !!session?.user || !!session?.user.email;
+    console.count("call")
+    const isLogin = !!session?.user?.email;
+    console.log(req.nextUrl.pathname,"pathname/middleware ")
     const protectedRoute = req.nextUrl.pathname==="/campaign" || req.nextUrl.pathname==="/profile" || req.nextUrl.pathname==="/api/me" || req.nextUrl.pathname==="/api/send-mail";
+
+    console.log(protectedRoute,isLogin)
     const withoutLoginRoute = req.nextUrl.pathname === "/login" || req.nextUrl.pathname==="/register"
     if(isLogin && withoutLoginRoute){
         return  NextResponse.redirect(new URL('/', req.url))
