@@ -4,7 +4,6 @@ import profilePic from "@/assets/aiIcon.png";
 import { auth, signOut } from "@/auth"
 import { redirect } from "next/navigation";
 import CampaignCard from "@/components/client/campaignCard";
-import { Suspense } from "react";
 const Profile = async () => {
   const session = await auth();
   if (!session || !session?.user || !session?.user?.email) {
