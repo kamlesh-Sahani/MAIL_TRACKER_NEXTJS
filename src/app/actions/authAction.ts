@@ -45,7 +45,7 @@ export const signUpAction = async(formData:FormData)=>{
             role,
             email,
             verificationToken:token,
-            verficationTokenExpire:new Date(Date.now() + 1 * 60 * 1000) // 1 minute
+            verficationTokenExpire:new Date(Date.now() + 30 * 60 * 1000) // 30 minute
          })
          if(!user){
             return{
@@ -62,7 +62,7 @@ export const signUpAction = async(formData:FormData)=>{
         style="display: inline-block; padding: 10px 20px; color: white; background-color: #007BFF; text-decoration: none; border-radius: 5px;">
         Verify Email
       </a>
-      <h3>Link expire within 1 minutes</h3>
+      <h3>Link expire within 30 minutes</h3>
       <p style="color: #555;">If you did not create an account, please ignore this email.</p>
       <p>Thank you,<br/>The Team</p>
     </div>`;
