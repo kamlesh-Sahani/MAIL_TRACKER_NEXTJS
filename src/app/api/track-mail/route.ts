@@ -12,7 +12,7 @@ export async function GET(req:NextRequest){
             "campaigns.trackingId":trackingId
         }).select("campaigns");
 
-        if(!campaigns){
+        if(!campaigns || !campaigns.campaigns){
             return NextResponse.json({
                 success:false,
                 message:"invalid tracking id"
@@ -21,17 +21,17 @@ export async function GET(req:NextRequest){
         const ipAddress = 
             req.headers.get("cf-connecting-ip") || 
             req.headers.get("x-real-ip") || 
-            req.headers.get("x-forwarded-for")?.split(',')[0].trim();
-        for(let i=0;i<campaigns.campaigns.length;i++){
+            req.headers.get("x-forwarded-for")?.split(',')[0].trim() || "";
+        for(let i=0;i<campaigns?.campaigns.length;i++){
             if(campaigns.campaigns[i].trackingId===trackingId){
-                if(campaigns.campaigns[i].opend.includes(ipAddress)){
+                if(campaigns && campaigns.campaigns[i].opend!.includes(ipAddress)){
                     return NextResponse.json({
                         success:false,
                         message:"already client is opened",
                         ipAddress
                     })
                 }else{
-                    campaigns.campaigns[i].opend.push(ipAddress);
+                    campaigns.campaigns[i].opend!.push(ipAddress);
                     await campaigns.save();
                     return NextResponse.json({
                         success:true,
