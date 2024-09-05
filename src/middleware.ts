@@ -15,7 +15,7 @@ export const middleware = async (req:NextRequest)=>{
         return  NextResponse.redirect(new URL('/', req.url))
     }
     if(protectedRoute && !isLogin){
-        return NextResponse.redirect(new URL("/login"))
+        return NextResponse.redirect(new URL("/login",req.url))
     }
 }
 
