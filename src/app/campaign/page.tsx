@@ -47,7 +47,8 @@ const mailSubmitHandler = (e:React.FormEvent)=>{
       })
     }
     setIsLoading(false);
-   }).catch((error)=>{toast.error("Something went wrong");  setIsLoading(false);} )
+   }).catch((error)=>{toast.error("Something went wrong");
+    console.log(error);  setIsLoading(false);} )
  
 }
 
