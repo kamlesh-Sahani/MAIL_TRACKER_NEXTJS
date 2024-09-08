@@ -22,7 +22,7 @@ import {useRouter} from "next/navigation"
       const response = await loginAction({ email: loginData.email, password: loginData.password });
       if(response === "NEXT_REDIRECT"){
         toast.success("sign in successfuly");
-        router.push("/campaign");
+        router.push("/");
         return router.refresh();
       }
       toast.error("check email of password");
