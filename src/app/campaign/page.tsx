@@ -7,9 +7,11 @@ import run from "@/utils/gemini";
 import { marked } from "marked";
 import { useSession } from "next-auth/react";
 import Loader from "@/components/Loader";
+import { useRouter } from "next/navigation";
 const Page = () => {
   const { data: session } = useSession();
-  const [loading, setLoading] = useState(false);
+  const [sessionData,setSessionData] = useState<any>();
+  const router = useRouter();
   const [messagePlaceholder] = useState(`Hi [Manager's Name],
 I hope you're doing well.
 I wanted to take a moment to express how much I’ve enjoyed working at [Company Name] over the past [X months/years]. The projects we’ve tackled and the progress we’ve made as a team have been incredibly rewarding. I’m especially proud of my contributions to [mention a specific project or achievement], which [describe the impact or results].`);
@@ -77,10 +79,14 @@ I wanted to take a moment to express how much I’ve enjoyed working at [Company
     }));
     setAiLoading(false);
   };
-
+  useEffect(()=>{
+    if(session?.user){
+      setSessionData(session?.user)
+    }
+  },[session])
   return (
     <div className="flex-1 flex justify-center ">
-      {session ? (
+      {sessionData?.email ? (
         <form
           onSubmit={mailSubmitHandler}
           className=" w-[60%] max-md:w-[97%]  flex flex-col gap-6   rounded-lg shadow-lg"
