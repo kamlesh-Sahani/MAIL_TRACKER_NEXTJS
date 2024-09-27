@@ -5,7 +5,7 @@ const  {auth} =  NextAuth(authConfig);
 export const middleware = async (req:NextRequest)=>{
     const session:any  = await auth();
     const isLogin = !!session?.user?.email;
-    console.log(session.user,"user")
+    console.log(session?.user,"user")
     console.log(req.nextUrl.pathname,"pathname/middleware ")
     const protectedRoute = req.nextUrl.pathname==="/campaign" || req.nextUrl.pathname==="/profile" || req.nextUrl.pathname==="/api/me" || req.nextUrl.pathname==="/api/send-mail";
 
