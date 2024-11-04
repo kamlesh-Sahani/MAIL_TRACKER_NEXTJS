@@ -1,5 +1,4 @@
 # Email Tracking System
-
 ## Description
 
 A Next.js application integrated with MongoDB, Nodemailer, and Auth.js v5. This project allows you to send emails with tracking capabilities. By embedding tracking pixels in emails, it monitors email opens using unique IDs. The system includes authentication features and a backend for managing email campaigns and user data.
