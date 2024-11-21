@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Loader from "../Loader";
+import Loader from "@/components/Loader";
 
 const CampaignCard = ({ email }: { email: string }) => {
   const [campaigns, setCampaigns] = useState<Array<{
